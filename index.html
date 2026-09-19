@@ -2,132 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>Wonder Cartoon Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wasiq Universe Studio — Episode Director v1</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Noto+Sans+Bengali:wght@700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
   <style>
-    :root { --ink:#2b1b4a; --sun:#ffd166; --coral:#ff6b6b; --sky:#4ecdc4; --violet:#7b5cff; --grape:#5b3cc4; --leaf:#7bd389; }
-    *{box-sizing:border-box} html,body{margin:0;min-height:100%}
-    body{font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:radial-gradient(1200px 600px at 10% -10%,#ffe8a3 0%,transparent 50%),radial-gradient(900px 500px at 110% 0%,#c9b6ff 0%,transparent 46%),linear-gradient(180deg,#f7f1ff 0%,#fff8ef 40%,#e8fff6 100%)}
-    h1,h2,.logo{font-family:Fredoka,sans-serif}
-    .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 80px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-    .logo{display:flex;align-items:center;gap:10px;font-size:1.45rem;font-weight:700}
-    .mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--sun),var(--coral));display:grid;place-items:center;font-size:22px;box-shadow:0 8px 18px rgba(255,107,107,.28)}
-    .pill{background:#fff;border:2px solid #2b1b4a14;border-radius:999px;padding:8px 14px;font-weight:800;font-size:13px}
-    .hero{background:#fff;border:3px solid #2b1b4a12;border-radius:28px;padding:22px;box-shadow:0 18px 40px rgba(91,60,196,.08);margin-bottom:18px}
-    .hero h1{margin:0 0 6px;font-size:clamp(1.6rem,4vw,2.3rem)}
-    .hero p{margin:0;color:#5a4a78}
-    .steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-    .step{flex:1;min-width:140px;background:#f6f0ff;border-radius:16px;padding:10px 12px;font-size:13px;font-weight:800}
-    .step span{display:block;color:var(--grape);font-size:11px}
-    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-    @media(max-width:860px){.grid{grid-template-columns:1fr}}
-    .card{background:#fff;border-radius:24px;padding:16px;border:3px solid #2b1b4a10}
-    .card h2{margin:0 0 12px;font-size:1.15rem}
-    .choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px}
-    .choice{border:3px solid #efe8ff;background:#fbf8ff;border-radius:18px;padding:10px;cursor:pointer;text-align:center;font-weight:800}
-    .choice.on{border-color:var(--violet);background:#efe8ff}
-    .choice .emoji{font-size:28px;display:block;margin-bottom:4px}
-    label{display:block;font-weight:800;margin:12px 0 6px;font-size:13px}
-    input[type=text],textarea{width:100%;border:2px solid #eadfff;border-radius:14px;padding:11px 12px;font:inherit}
+    :root{--side:#17122f;--ink:#241a3d;--mute:#6d6288;--line:#ece6f7;--violet:#6d4aff;--green:#1f9d6d}
+    *{box-sizing:border-box} html,body{margin:0;height:100%}
+    body{font-family:Nunito,"Noto Sans Bengali",system-ui,sans-serif;color:var(--ink);background:#efeafb;display:grid;grid-template-columns:232px 1fr;min-height:100vh}
+    h1,h2,.brand{font-family:Fredoka,Nunito,sans-serif}
+    .side{background:var(--side);color:#efe9ff;padding:18px 14px;display:flex;flex-direction:column;gap:6px}
+    .brand{display:flex;gap:10px;align-items:center;padding:6px 8px 16px}
+    .logo{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#7b5cff,#ff8ab0);display:grid;place-items:center;font-size:20px}
+    .navbtn{border:0;background:transparent;color:#d9d0f2;text-align:left;padding:10px 12px;border-radius:12px;font:inherit;font-weight:800;cursor:pointer}
+    .navbtn.on,.navbtn:hover{background:var(--violet);color:#fff}
+    .privacy{margin-top:auto;background:#2a2150;border-radius:16px;padding:12px;font-size:12px;color:#d7ceef}
+    .main{padding:16px 18px 28px;overflow:auto}
+    .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+    .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800}
+    .chip.purple{background:var(--violet);color:#fff;border:0}
+    .chip.ok{background:#e8fff4;color:var(--green)}
+    .panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:14px}
+    .controls{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:10px;align-items:end}
+    label{display:block;font-size:11px;font-weight:800;color:var(--mute);margin:6px 0 5px}
+    select,input,textarea{width:100%;border:1.5px solid #e4dcf6;border-radius:12px;padding:9px 10px;font:inherit}
     textarea{min-height:64px}
-    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-    button{font:inherit;font-weight:800;border:0;cursor:pointer;border-radius:999px;padding:11px 16px}
-    .primary{background:var(--violet);color:#fff}
-    .ghost{background:#efe8ff;color:var(--grape)}
-    .danger{background:var(--coral);color:#fff}
-    .ok{background:var(--leaf);color:#123}
-    .stage-wrap{background:#1b1233;border-radius:24px;padding:12px;position:relative;overflow:hidden}
-    canvas{width:100%;height:auto;display:block;border-radius:16px}
-    .caption{position:absolute;left:20px;right:20px;bottom:20px;background:#fffce8ee;border-radius:14px;padding:10px 12px;font-weight:800;text-align:center}
-    footer{margin-top:22px;color:#6b5b88;font-size:13px;text-align:center}
-    .hint{font-size:12px;color:#6b5b88;margin-top:8px}
+    button{font:inherit;font-weight:800;border:0;cursor:pointer;border-radius:12px}
+    .btn{padding:10px 14px}.btn-v{background:var(--violet);color:#fff}.btn-g{background:var(--green);color:#fff}.btn-w{background:#fff;border:1.5px solid var(--line)}.btn-p{background:#3d2e8a;color:#fff}
+    .cast,.shots{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .card,.shot{border:1.5px solid var(--line);border-radius:16px;background:#fff;position:relative}
+    .card.off{opacity:.38}
+    .avatar{height:88px;border-radius:12px;display:grid;place-items:center;font-size:40px}
+    .tag{position:absolute;top:12px;right:12px;font-size:10px;font-weight:800;background:#e8fff4;color:var(--green);border-radius:999px;padding:3px 7px}
+    .shot{overflow:hidden;cursor:pointer}.shot.on{outline:3px solid #c9b6ff}
+    .thumb{height:86px;display:grid;place-items:center;color:#fff;font-weight:800;background:linear-gradient(160deg,#7b5cff,#89d4ff);position:relative}
+    .num{position:absolute;top:8px;left:8px;width:22px;height:22px;border-radius:50%;background:var(--violet);display:grid;place-items:center;font-size:11px}
+    .stagebox{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+    canvas{width:100%;height:auto;border-radius:16px;display:block}
+    .hint{color:var(--mute);font-size:12px}.warn{background:#fff8e6;border-radius:12px;padding:10px;font-weight:700;margin:12px 0}
+    .actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+    .page{display:none}.page.on{display:block}
+    @media(max-width:1100px){body{grid-template-columns:1fr}.side{display:none}.cast,.shots,.stagebox,.controls{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo"><div class="mark">🏰</div> Wonder Cartoon Studio</div>
-      <div class="pill">For little explorers · Safe · Offline-friendly</div>
-    </header>
-    <section class="hero">
-      <h1>Make a tiny cartoon in four taps.</h1>
-      <p>Pick a world, invite friends, write three lines, press play. Record it as a video for family night.</p>
-      <div class="steps">
-        <div class="step"><span>1</span> Choose a world</div>
-        <div class="step"><span>2</span> Invite friends</div>
-        <div class="step"><span>3</span> Write the story</div>
-        <div class="step"><span>4</span> Play & record</div>
-      </div>
-    </section>
-    <div class="grid">
-      <div>
-        <div class="card" style="margin-bottom:16px"><h2>World</h2><div class="choices" id="worlds"></div></div>
-        <div class="card" style="margin-bottom:16px"><h2>Friends (pick one or two)</h2><div class="choices" id="chars"></div></div>
-        <div class="card">
-          <h2>Story beats</h2>
-          <label>Title</label>
-          <input id="title" type="text" maxlength="48" value="Toward the Golden Castle" />
-          <label>Beat 1</label><textarea id="b1">We pack a tiny backpack and start walking.</textarea>
-          <label>Beat 2</label><textarea id="b2">A bird shows us a secret path of lights.</textarea>
-          <label>Beat 3</label><textarea id="b3">The castle doors open. Adventure begins!</textarea>
-          <div class="actions">
-            <button class="primary" id="play">▶ Play cartoon</button>
-            <button class="ghost" id="pause">Pause</button>
-            <button class="ok" id="rec">● Record</button>
-            <button class="danger" id="stopRec" hidden>Stop & download</button>
-          </div>
-          <p class="hint">Recording captures the stage as a WebM video in your browser. No upload. No account.</p>
-        </div>
-      </div>
-      <div>
-        <div class="stage-wrap">
-          <canvas id="stage" width="720" height="540"></canvas>
-          <div class="caption" id="caption">Toward the Golden Castle</div>
-        </div>
-        <p class="hint" style="text-align:center">Keep lines short so a toddler can follow the pictures.</p>
+<aside class="side">
+  <div class="brand" style="display:flex;gap:10px;align-items:center;padding:6px 8px 16px"><div class="logo">🧒</div><div><b>Wasiq Universe</b><br><small>Studio v1</small></div></div>
+  <button class="navbtn on" data-page="director">Episode Director</button>
+  <button class="navbtn" data-page="characters">Characters</button>
+  <button class="navbtn" data-page="library">Asset Library</button>
+  <button class="navbtn" data-page="render">Render Studio</button>
+  <div class="privacy"><b>Privacy First</b><br>Drafts stay in this browser. Nothing is uploaded.</div>
+</aside>
+<main class="main">
+  <div class="top"><div><h1>Episode Director</h1><div class="hint">60-second locked-cast learning cartoon.</div></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip">বাংলা + English</span><span class="chip">60s · 6×10s</span><span class="chip ok" id="saveState">Saved locally</span><span class="chip purple">Parent review</span></div></div>
+  <section class="page on" id="page-director">
+    <div class="panel"><div class="controls">
+      <div><label>Topic</label><select id="topic"></select></div>
+      <div><label>Language</label><select id="lang"><option value="bn-en">বাংলা + English</option><option value="bn">বাংলা</option><option value="en">English</option></select></div>
+      <div><label>Duration</label><select id="dur"><option>60 sec (6×10s)</option></select></div>
+      <div><label>Cast</label><select id="castMode"><option value="core5">Core 5</option><option value="all6">All 6 friends</option></select></div>
+      <button class="btn btn-v" id="build">Build Storyboard</button>
+    </div></div>
+    <div class="panel"><h2>Locked Cast</h2><div class="cast" id="cast"></div></div>
+    <div class="panel"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Storyboard (6 shots)</h2><label class="hint"><input type="checkbox" id="parentNeed" checked /> Parent review required</label></div><div class="shots" id="shots"></div></div>
+    <div class="stagebox">
+      <div class="panel"><h2>Shot preview</h2><canvas id="stage" width="720" height="405"></canvas>
+        <div class="actions" style="margin-top:10px"><button class="btn btn-w" id="prev">Prev</button><button class="btn btn-v" id="play">Play 60s</button><button class="btn btn-w" id="next">Next</button></div></div>
+      <div class="panel">
+        <h2>Edit selected shot</h2>
+        <label>Title</label><input id="editTitle" />
+        <label>Action</label><textarea id="editBody"></textarea>
+        <label>Line (EN)</label><input id="editEn" />
+        <label>লাইন (বাংলা)</label><input id="editBn" />
+        <div class="warn">No video leaves this desk until a parent approves.</div>
+        <div class="actions"><button class="btn btn-w" id="saveDraft">Save Draft</button><button class="btn btn-p" id="markReview">Request Parent Review</button><button class="btn btn-g" id="approve">Approve & Record</button></div>
+        <p class="hint" id="gateNote"></p>
+        <div class="actions"><button class="btn btn-v" id="rec" disabled>Record WebM</button><button class="btn btn-w" id="stopRec" hidden>Stop & download</button></div>
       </div>
     </div>
-    <footer>Wonder Cartoon Studio · a little story machine · works best in Chrome or Edge</footer>
-  </div>
-  <script>
-    const WORLDS=[{id:"castle",name:"Golden Castle",emoji:"🏰",sky:["#87CEEB","#ffe9a8"],ground:"#7bd389",accent:"#ffd166"},{id:"forest",name:"Singing Forest",emoji:"🌲",sky:["#9be7ff","#c8f7c5"],ground:"#3d8b5a",accent:"#7bd389"},{id:"stars",name:"Star Meadow",emoji:"✨",sky:["#1b1233","#4b2e83"],ground:"#2a1b4a",accent:"#ffd166"},{id:"river",name:"River Village",emoji:"🛶",sky:["#b8e3ff","#fff3c4"],ground:"#e8c07a",accent:"#4ecdc4"},{id:"candy",name:"Candy Hills",emoji:"🍭",sky:["#ffd6e8","#fff0b3"],ground:"#ff9ec4",accent:"#ff6b6b"}];
-    const CHARS=[{id:"explorer",name:"Explorer",emoji:"🧒"},{id:"sister",name:"Sister",emoji:"👧"},{id:"tiger",name:"Tiger cub",emoji:"🐯"},{id:"bird",name:"Guide bird",emoji:"🐦"},{id:"bot",name:"Kind robot",emoji:"🤖"}];
-    const state={world:WORLDS[0],friends:["explorer","bird"],t:0,playing:true,rec:null,chunks:[]};
-    const worldsEl=document.getElementById("worlds");
-    const charsEl=document.getElementById("chars");
-    const canvas=document.getElementById("stage");
-    const ctx=canvas.getContext("2d");
-    const caption=document.getElementById("caption");
-    function renderChoices(){
-      worldsEl.innerHTML=WORLDS.map(w=>`<button class="choice ${state.world.id===w.id?"on":""}" data-w="${w.id}"><span class="emoji">${w.emoji}</span>${w.name}</button>`).join("");
-      charsEl.innerHTML=CHARS.map(c=>`<button class="choice ${state.friends.includes(c.id)?"on":""}" data-c="${c.id}"><span class="emoji">${c.emoji}</span>${c.name}</button>`).join("");
-    }
-    worldsEl.addEventListener("click",e=>{const btn=e.target.closest("[data-w]");if(!btn)return;state.world=WORLDS.find(w=>w.id===btn.dataset.w);renderChoices();});
-    charsEl.addEventListener("click",e=>{const btn=e.target.closest("[data-c]");if(!btn)return;const id=btn.dataset.c;if(state.friends.includes(id)){if(state.friends.length>1)state.friends=state.friends.filter(x=>x!==id);}else{if(state.friends.length>=2)state.friends.shift();state.friends.push(id);}renderChoices();});
-    function beats(){return[document.getElementById("title").value.trim()||"A new story",document.getElementById("b1").value.trim(),document.getElementById("b2").value.trim(),document.getElementById("b3").value.trim()];}
-    function roundRect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
-    function drawChar(kind,x,y,s,bounce){const yy=y+Math.sin(bounce)*8;ctx.save();ctx.translate(x,yy);ctx.scale(s,s);ctx.fillStyle="rgba(0,0,0,.15)";ctx.beginPath();ctx.ellipse(0,58,28,8,0,0,Math.PI*2);ctx.fill();
-      if(kind==="tiger"){ctx.fillStyle="#ff9f1c";roundRect(-28,-10,56,52,18);ctx.fill();ctx.fillStyle="#fff3d6";roundRect(-16,8,32,22,10);ctx.fill();ctx.fillStyle="#2b1b4a";ctx.beginPath();ctx.arc(-10,0,4,0,Math.PI*2);ctx.arc(10,0,4,0,Math.PI*2);ctx.fill();ctx.fillStyle="#ff6b6b";ctx.beginPath();ctx.arc(0,16,5,0,Math.PI);ctx.fill();}
-      else if(kind==="bird"){ctx.fillStyle="#4ecdc4";ctx.beginPath();ctx.ellipse(0,10,26,18,0,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(-6,-8,16,16,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#ffd166";ctx.beginPath();ctx.moveTo(8,-8);ctx.lineTo(22,-4);ctx.lineTo(8,0);ctx.fill();ctx.fillStyle="#2b1b4a";ctx.beginPath();ctx.arc(-2,-10,3,0,Math.PI*2);ctx.fill();}
-      else if(kind==="bot"){ctx.fillStyle="#d9d2ff";roundRect(-26,-16,52,60,12);ctx.fill();ctx.fillStyle="#7b5cff";roundRect(-18,-6,16,12,4);ctx.fill();roundRect(2,-6,16,12,4);ctx.fill();ctx.fillStyle="#2b1b4a";roundRect(-12,18,24,8,4);ctx.fill();}
-      else{const dress=kind==="sister"?"#ff6b6b":"#5b3cc4";ctx.fillStyle="#f3c7a3";ctx.beginPath();ctx.arc(0,-6,20,0,Math.PI*2);ctx.fill();ctx.fillStyle=dress;roundRect(-22,16,44,40,16);ctx.fill();ctx.fillStyle="#2b1b4a";ctx.beginPath();ctx.arc(-7,-8,3,0,Math.PI*2);ctx.arc(7,-8,3,0,Math.PI*2);ctx.fill();ctx.strokeStyle="#2b1b4a";ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,-1,7,.15*Math.PI,.85*Math.PI);ctx.stroke();ctx.fillStyle=kind==="sister"?"#3a2414":"#1e120c";ctx.beginPath();ctx.arc(0,-18,20,Math.PI,0);ctx.fill();}ctx.restore();}
-    function drawWorld(w,t){const[c1,c2]=w.sky;const g=ctx.createLinearGradient(0,0,0,canvas.height);g.addColorStop(0,c1);g.addColorStop(1,c2);ctx.fillStyle=g;ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle=w.id==="stars"?"#fff6b0":"#ffe066";ctx.beginPath();ctx.arc(600+Math.sin(t*.2)*8,80,36,0,Math.PI*2);ctx.fill();
-      if(w.id==="stars"){ctx.fillStyle="#fff";for(let i=0;i<40;i++){const x=(i*97+t*8)%720,y=(i*53)%260;ctx.globalAlpha=.5+.5*Math.sin(t+i);ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fill();}ctx.globalAlpha=1;}
-      ctx.fillStyle=w.ground;ctx.beginPath();ctx.moveTo(0,420);for(let x=0;x<=720;x+=20)ctx.lineTo(x,400+Math.sin(x*.02+t*.3)*10);ctx.lineTo(720,540);ctx.lineTo(0,540);ctx.fill();
-      if(w.id==="castle"||w.id==="river"){ctx.fillStyle=w.accent;ctx.fillRect(470,250,140,170);ctx.fillStyle="#5b3cc4";ctx.beginPath();ctx.moveTo(455,250);ctx.lineTo(540,180);ctx.lineTo(625,250);ctx.fill();ctx.fillStyle="#fffce8";ctx.fillRect(500,300,28,36);ctx.fillRect(555,300,28,36);ctx.fillRect(522,360,36,60);}
-      if(w.id==="forest"){for(let i=0;i<6;i++){const x=80+i*110;ctx.fillStyle="#2f6b3c";ctx.beginPath();ctx.moveTo(x,420);ctx.lineTo(x+50,250);ctx.lineTo(x+100,420);ctx.fill();}}
-      if(w.id==="candy"){ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(160,360,40,0,Math.PI*2);ctx.fill();ctx.fillStyle="#ff6b6b";ctx.fillRect(152,250,16,110);}}
-    function frame(){state.t+=state.playing?.05:0;const b=beats();const cycle=Math.floor(state.t/4)%4;caption.textContent=b[cycle]||b[0];drawWorld(state.world,state.t);state.friends.map(id=>CHARS.find(c=>c.id===id)).forEach((c,i)=>{drawChar(c.id,160+i*200+Math.sin(state.t*.8+i)*18,390,1.15,state.t*3+i);});if(cycle===0){ctx.fillStyle="rgba(43,27,74,.55)";roundRect(80,40,560,70,20);ctx.fill();ctx.fillStyle="#fffce8";ctx.font="700 28px Fredoka,Nunito,sans-serif";ctx.textAlign="center";ctx.fillText(b[0].slice(0,42),360,85);}requestAnimationFrame(frame);}
-    document.getElementById("play").onclick=()=>state.playing=true;
-    document.getElementById("pause").onclick=()=>state.playing=false;
-    const recBtn=document.getElementById("rec"),stopBtn=document.getElementById("stopRec");
-    recBtn.onclick=()=>{const stream=canvas.captureStream(30);const rec=new MediaRecorder(stream,{mimeType:MediaRecorder.isTypeSupported("video/webm;codecs=vp9")?"video/webm;codecs=vp9":"video/webm"});state.chunks=[];rec.ondataavailable=e=>{if(e.data.size)state.chunks.push(e.data)};rec.onstop=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(state.chunks,{type:"video/webm"}));a.download="wonder-cartoon.webm";a.click();};rec.start();state.rec=rec;state.playing=true;recBtn.hidden=true;stopBtn.hidden=false;};
-    stopBtn.onclick=()=>{if(state.rec&&state.rec.state!=="inactive")state.rec.stop();recBtn.hidden=false;stopBtn.hidden=true;};
-    renderChoices();frame();
-  </script>
+  </section>
+  <section class="page" id="page-characters"><div class="panel"><h2>Locked bible</h2><p>Wasiq 10 months. Pixie white Spitz red bandana. Tutun tabby. Puipui purple bird. Puchu panda. Kathbirali squirrel. Do not age or recast.</p></div></section>
+  <section class="page" id="page-library"><div class="panel"><h2>Asset folders</h2><pre>/Wasiq /Pixie /Tutun /Puipui /Puchu /Kathbirali /Props /Backgrounds</pre></div></section>
+  <section class="page" id="page-render"><div class="panel"><h2>Render</h2><p>v1 canvas WebM playblast.</p></div></section>
+</main>
+<script>
+const CAST=[{id:"wasiq",name:"Wasiq",role:"10 months",emoji:"🧒",color:"#7db7ff",on:true,core:true},{id:"pixie",name:"Pixie",role:"Indian Spitz",emoji:"🐶",color:"#ffd4e4",on:true,core:true},{id:"tutun",name:"Tutun",role:"Tabby",emoji:"🐱",color:"#ffd7a8",on:true,core:true},{id:"puipui",name:"Puipui",role:"Bird",emoji:"🐦",color:"#e0d4ff",on:true,core:true},{id:"puchu",name:"Puchu",role:"Panda",emoji:"🐼",color:"#d9ffe8",on:true,core:true},{id:"kath",name:"Kathbirali",role:"Squirrel",emoji:"🐿️",color:"#f3e0cc",on:false,core:false}];
+const TOPICS={colors:{label:"Colors",shots:[{k:"HOOK",title:"SHOT 01 · HOOK",en:"Wasiq finds a glowing color chest.",bn:"ওয়াসিক একটি রঙিন বাক্স খু顱জে পায়।",body:"Color mystery."},{k:"DISCOVER",title:"SHOT 02 · DISCOVER",en:"Friends run into the playroom.",bn:"বন্ধুরা খেলার ঘরে ছুটে আসে।",body:"Cast enters."},{k:"CHALLENGE",title:"SHOT 03 · CHALLENGE",en:"Which ball is red?",bn:"কোনটা লাল?",body:"Pause for an answer."},{k:"REVEAL",title:"SHOT 04 · REVEAL",en:"Red! লাল!",bn:"লাল! Red!",body:"Celebrate."},{k:"REPEAT",title:"SHOT 05 · REPEAT",en:"Now find blue.",bn:"এবার নীল খো頜ো।",body:"Second challenge."},{k:"FINALE",title:"SHOT 06 · FINALE",en:"Red লাল · Blue নীল · Green সবুজ",bn:"লাল Red · নীল Blue · সবুজ Green",body:"Repeat words."}]},numbers:{label:"Numbers 1-3",shots:[{k:"HOOK",title:"SHOT 01 · HOOK",en:"One little drum.",bn:"একটি ছোট ঢোল।",body:"Start at one."},{k:"DISCOVER",title:"SHOT 02 · DISCOVER",en:"Friends bring more drums.",bn:"বন্ধুরা আরও ঢোল আনে।",body:"More drums."},{k:"CHALLENGE",title:"SHOT 03 · CHALLENGE",en:"How many now?",bn:"এখন কয়টা?",body:"Pause."},{k:"REVEAL",title:"SHOT 04 · REVEAL",en:"Three! তিন!",bn:"তিন! Three!",body:"Three."},{k:"REPEAT",title:"SHOT 05 · REPEAT",en:"Count with us.",bn:"আমাদের সাথে গোনো।",body:"1-2-3."},{k:"FINALE",title:"SHOT 06 · FINALE",en:"We counted to three.",bn:"আমরা তিন পর্যন্ত গুনলাম।",body:"Close."}]},kindness:{label:"Kindness",shots:[{k:"HOOK",title:"SHOT 01 · HOOK",en:"Pixie dropped a toy.",bn:"পিক্সির খেলনা পড়ে গেল।",body:"Mishap."},{k:"DISCOVER",title:"SHOT 02 · DISCOVER",en:"Wasiq sees a friend who needs help.",bn:"ওয়াসিক দেখে বন্ধুর সাহায্য দরকার।",body:"Notice."},{k:"CHALLENGE",title:"SHOT 03 · CHALLENGE",en:"What can we do?",bn:"আমরা কী করতে পারি?",body:"Pause."},{k:"REVEAL",title:"SHOT 04 · REVEAL",en:"We help.",bn:"আমরা সাহায্য করি।",body:"Help."},{k:"REPEAT",title:"SHOT 05 · REPEAT",en:"Helping feels warm.",bn:"সাহায্য করলে মন ভরে।",body:"Warm."},{k:"FINALE",title:"SHOT 06 · FINALE",en:"Friends take care of friends.",bn:"বন্ধুরা বন্ধুদের দেখাশোনা করে।",body:"Close."}]}};
+const state={topic:"colors",lang:"bn-en",shots:JSON.parse(JSON.stringify(TOPICS.colors.shots)),sel:0,playing:false,approved:false,reviewed:false,rec:null,chunks:[]};
+const $=id=>document.getElementById(id);const canvas=$("stage"),ctx=canvas.getContext("2d");
+function applyCastMode(){const all=$("castMode").value==="all6";CAST.forEach(c=>c.on=all?true:c.core)}
+function renderCast(){$("cast").innerHTML=CAST.map(c=>`<div class="card ${c.on?"":"off"}" style="padding:8px">${c.on?'<span class="tag">LOCKED</span>':""}<div class="avatar" style="background:${c.color}">${c.emoji}</div><b>${c.name}</b><div class="hint">${c.role}</div></div>`).join("")}
+function renderShots(){$("shots").innerHTML=state.shots.map((s,i)=>`<article class="shot ${i===state.sel?"on":""}" data-i="${i}"><div class="thumb"><span class="num">${i+1}</span>${s.k}</div><div style="padding:8px"><b>${s.title}</b><p class="hint">${s.body}</p></div></article>`).join("")}
+function fillEditor(){const s=state.shots[state.sel];$("editTitle").value=s.title;$("editBody").value=s.body;$("editEn").value=s.en;$("editBn").value=s.bn}
+function readEditor(){const s=state.shots[state.sel];s.title=$("editTitle").value;s.body=$("editBody").value;s.en=$("editEn").value;s.bn=$("editBn").value}
+function saveLocal(){localStorage.setItem("wus-ep-v1",JSON.stringify({topic:state.topic,lang:state.lang,shots:state.shots,approved:state.approved,reviewed:state.reviewed}));$("saveState").textContent="Saved locally"}
+function loadLocal(){try{const d=JSON.parse(localStorage.getItem("wus-ep-v1")||"null");if(d)Object.assign(state,d)}catch(e){}}
+function lineFor(s){return state.lang==="bn"?s.bn:state.lang==="en"?s.en:s.en+" · "+s.bn}
+function round(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function drawFriend(c,x,y){ctx.save();ctx.translate(x,y);ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(0,0,22,0,Math.PI*2);ctx.fill();ctx.font="28px serif";ctx.textAlign="center";ctx.fillText(c.emoji,0,10);ctx.restore()}
+function drawShot(idx,t){const s=state.shots[idx];const g=ctx.createLinearGradient(0,0,0,405);g.addColorStop(0,"#bfe7ff");g.addColorStop(1,"#ffe9c7");ctx.fillStyle=g;ctx.fillRect(0,0,720,405);ctx.fillStyle="#8ad38a";ctx.fillRect(0,300,720,105);if(state.topic==="colors"){["#ff5d73","#4ea8ff","#3cce7a"].forEach((col,i)=>{ctx.fillStyle=col;ctx.beginPath();ctx.arc(280+i*90,250+Math.sin(t*2+i)*8,28,0,Math.PI*2);ctx.fill()})}CAST.filter(c=>c.on).forEach((c,i)=>drawFriend(c,90+i*(540/Math.max(CAST.filter(z=>z.on).length-1,1)),318+Math.sin(t*3+i)*6));ctx.fillStyle="rgba(28,22,56,.72)";round(40,330,640,58,14);ctx.fill();ctx.fillStyle="#fff";ctx.font="700 16px Nunito,sans-serif";ctx.textAlign="center";ctx.fillText(lineFor(s),360,366);ctx.fillStyle="#5b3ce8";ctx.textAlign="left";ctx.fillText((idx+1)+"/6 "+s.k,24,28)}
+let last=performance.now(),clock=0;
+function loop(now){const dt=(now-last)/1000;last=now;if(state.playing){clock+=dt;const shot=Math.min(5,Math.floor(clock/10));if(shot!==state.sel){state.sel=shot;renderShots();fillEditor()}if(clock>=60)state.playing=false}drawShot(state.sel,now/1000);requestAnimationFrame(loop)}
+function buildBoard(){state.topic=$("topic").value;state.lang=$("lang").value;state.shots=JSON.parse(JSON.stringify(TOPICS[state.topic].shots));state.sel=0;state.approved=false;state.reviewed=false;applyCastMode();renderCast();renderShots();fillEditor();saveLocal();$("rec").disabled=true;$("gateNote").textContent="New board. Parent review still required."}
+Object.entries(TOPICS).forEach(([id,t])=>{const o=document.createElement("option");o.value=id;o.textContent=t.label;$("topic").appendChild(o)});
+document.querySelectorAll(".navbtn").forEach(btn=>{btn.onclick=()=>{document.querySelectorAll(".navbtn").forEach(b=>b.classList.remove("on"));btn.classList.add("on");document.querySelectorAll(".page").forEach(p=>p.classList.remove("on"));$("page-"+btn.dataset.page).classList.add("on")}});
+$("shots").addEventListener("click",e=>{const art=e.target.closest("[data-i]");if(!art)return;readEditor();state.sel=+art.dataset.i;renderShots();fillEditor()});
+["editTitle","editBody","editEn","editBn"].forEach(id=>$(id).addEventListener("input",()=>{readEditor();renderShots();saveLocal()}));
+$("build").onclick=buildBoard;$("castMode").onchange=()=>{applyCastMode();renderCast()};$("lang").onchange=()=>{state.lang=$("lang").value;saveLocal()};
+$("saveDraft").onclick=()=>{readEditor();saveLocal()};
+$("markReview").onclick=()=>{state.reviewed=true;$("gateNote").textContent="Review requested. Read every shot, then approve.";saveLocal()};
+$("approve").onclick=()=>{if($("parentNeed").checked&&!state.reviewed){$("gateNote").textContent="Request parent review first.";return}state.approved=true;$("rec").disabled=false;$("gateNote").textContent="Approved. Local record unlocked.";saveLocal()};
+$("play").onclick=()=>{state.playing=true;clock=state.sel*10};
+$("prev").onclick=()=>{state.sel=(state.sel+5)%6;renderShots();fillEditor()};
+$("next").onclick=()=>{state.sel=(state.sel+1)%6;renderShots();fillEditor()};
+$("rec").onclick=()=>{if(!state.approved)return;const rec=new MediaRecorder(canvas.captureStream(30),{mimeType:MediaRecorder.isTypeSupported("video/webm;codecs=vp9")?"video/webm;codecs=vp9":"video/webm"});state.chunks=[];rec.ondataavailable=e=>{if(e.data.size)state.chunks.push(e.data)};rec.onstop=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(state.chunks,{type:"video/webm"}));a.download="wasiq-episode-v1.webm";a.click()};rec.start();state.rec=rec;state.playing=true;clock=0;$("rec").hidden=true;$("stopRec").hidden=false};
+$("stopRec").onclick=()=>{if(state.rec&&state.rec.state!=="inactive")state.rec.stop();$("rec").hidden=false;$("stopRec").hidden=true};
+applyCastMode();loadLocal();$("topic").value=state.topic;$("lang").value=state.lang||"bn-en";renderCast();renderShots();fillEditor();requestAnimationFrame(loop);
+</script>
 </body>
 </html>
