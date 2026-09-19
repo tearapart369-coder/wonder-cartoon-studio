@@ -1,12 +1,9 @@
-# Wasiq Universe Studio — Episode Director v1
+# Wasiq Universe Studio — PWA v1
 
-Locked-cast kids episode desk for **Wasiq & Friends**.
+Approved lock:
+- Cast: toddler Wasiq (yellow + teal overalls), cream Pixie, tabby Tutun, blue Puipui, standing Puchu
+- Kathbirali omitted
+- Colors episode blocked in Playroom for all 6 shots
+- Installable PWA, local only
 
-- Character lock: Wasiq, Pixie, Tutun, Puipui, Puchu, Kathbirali (baby-sheet bible)
-- 6-shot board: Hook → Discover → Challenge → Reveal → Repeat → Finale
-- Topics: Colors, Numbers 1-3, Kindness
-- বাংলা + English lines
-- Parent review gate before record
-- Local draft (localStorage) and WebM capture — no upload
-
-Open `index.html` in Chrome or Edge.
+Open `index.html` in Chrome or Edge. Use Install app when the browser offers it.
