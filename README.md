@@ -1,13 +1,12 @@
-# Wonder Cartoon Studio
+# Wasiq Universe Studio — Episode Director v1
 
-A tiny, kid-safe cartoon story maker that runs entirely in the browser.
+Locked-cast kids episode desk for **Wasiq & Friends**.
 
-1. Pick a world
-2. Invite one or two friends
-3. Write a title and three story beats
-4. Play the stage
-5. Record a WebM video (no upload, no account)
+- Character lock: Wasiq, Pixie, Tutun, Puipui, Puchu, Kathbirali (baby-sheet bible)
+- 6-shot board: Hook → Discover → Challenge → Reveal → Repeat → Finale
+- Topics: Colors, Numbers 1-3, Kindness
+- বাংলা + English lines
+- Parent review gate before record
+- Local draft (localStorage) and WebM capture — no upload
 
-Open `index.html` locally or deploy the folder as a static site.
-
-Built for family cartoon nights and short explorer stories.
+Open `index.html` in Chrome or Edge.
