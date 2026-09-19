@@ -1,0 +1,14 @@
+{
+  "name": "Wasiq Universe Studio",
+  "short_name": "Wasiq Studio",
+  "description": "Episode Director for Wasiq & Friends — local 60s learning cartoons.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#17122f",
+  "theme_color": "#6d4aff",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
