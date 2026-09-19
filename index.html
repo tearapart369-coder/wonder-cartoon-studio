@@ -1,126 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wasiq Universe Studio — Episode Director v1</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Noto+Sans+Bengali:wght@700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-  <style>
-    :root{--side:#17122f;--ink:#241a3d;--mute:#6d6288;--line:#ece6f7;--violet:#6d4aff;--green:#1f9d6d}
-    *{box-sizing:border-box} html,body{margin:0;height:100%}
-    body{font-family:Nunito,"Noto Sans Bengali",system-ui,sans-serif;color:var(--ink);background:#efeafb;display:grid;grid-template-columns:232px 1fr;min-height:100vh}
-    h1,h2,.brand{font-family:Fredoka,Nunito,sans-serif}
-    .side{background:var(--side);color:#efe9ff;padding:18px 14px;display:flex;flex-direction:column;gap:6px}
-    .brand{display:flex;gap:10px;align-items:center;padding:6px 8px 16px}
-    .logo{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#7b5cff,#ff8ab0);display:grid;place-items:center;font-size:20px}
-    .navbtn{border:0;background:transparent;color:#d9d0f2;text-align:left;padding:10px 12px;border-radius:12px;font:inherit;font-weight:800;cursor:pointer}
-    .navbtn.on,.navbtn:hover{background:var(--violet);color:#fff}
-    .privacy{margin-top:auto;background:#2a2150;border-radius:16px;padding:12px;font-size:12px;color:#d7ceef}
-    .main{padding:16px 18px 28px;overflow:auto}
-    .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-    .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800}
-    .chip.purple{background:var(--violet);color:#fff;border:0}
-    .chip.ok{background:#e8fff4;color:var(--green)}
-    .panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:14px}
-    .controls{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:10px;align-items:end}
-    label{display:block;font-size:11px;font-weight:800;color:var(--mute);margin:6px 0 5px}
-    select,input,textarea{width:100%;border:1.5px solid #e4dcf6;border-radius:12px;padding:9px 10px;font:inherit}
-    textarea{min-height:64px}
-    button{font:inherit;font-weight:800;border:0;cursor:pointer;border-radius:12px}
-    .btn{padding:10px 14px}.btn-v{background:var(--violet);color:#fff}.btn-g{background:var(--green);color:#fff}.btn-w{background:#fff;border:1.5px solid var(--line)}.btn-p{background:#3d2e8a;color:#fff}
-    .cast,.shots{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
-    .card,.shot{border:1.5px solid var(--line);border-radius:16px;background:#fff;position:relative}
-    .card.off{opacity:.38}
-    .avatar{height:88px;border-radius:12px;display:grid;place-items:center;font-size:40px}
-    .tag{position:absolute;top:12px;right:12px;font-size:10px;font-weight:800;background:#e8fff4;color:var(--green);border-radius:999px;padding:3px 7px}
-    .shot{overflow:hidden;cursor:pointer}.shot.on{outline:3px solid #c9b6ff}
-    .thumb{height:86px;display:grid;place-items:center;color:#fff;font-weight:800;background:linear-gradient(160deg,#7b5cff,#89d4ff);position:relative}
-    .num{position:absolute;top:8px;left:8px;width:22px;height:22px;border-radius:50%;background:var(--violet);display:grid;place-items:center;font-size:11px}
-    .stagebox{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
-    canvas{width:100%;height:auto;border-radius:16px;display:block}
-    .hint{color:var(--mute);font-size:12px}.warn{background:#fff8e6;border-radius:12px;padding:10px;font-weight:700;margin:12px 0}
-    .actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
-    .page{display:none}.page.on{display:block}
-    @media(max-width:1100px){body{grid-template-columns:1fr}.side{display:none}.cast,.shots,.stagebox,.controls{grid-template-columns:1fr 1fr}}
-  </style>
-</head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#6d4aff"/>
+<title>Wasiq Universe Studio</title>
+<link rel="manifest" href="manifest.json"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Noto+Sans+Bengali:wght@700&family=Nunito:wght@800&display=swap" rel="stylesheet"/>
+<style>
+:root{--side:#17122f;--violet:#6d4aff;--green:#1f9d6d;--line:#ece6f7;--mute:#6d6288}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{font-family:Nunito,Noto Sans Bengali,system-ui;background:#efeafb;color:#241a3d;display:grid;grid-template-columns:214px 1fr}
+h1,h2,.brand{font-family:Fredoka,Nunito,sans-serif}
+.side{background:var(--side);color:#efe9ff;padding:14px 12px;display:flex;flex-direction:column;gap:6px}
+.navbtn{border:0;background:transparent;color:#d9d0f2;text-align:left;padding:10px;border-radius:12px;font:inherit;font-weight:800;cursor:pointer}
+.navbtn.on{background:var(--violet);color:#fff}
+.privacy{margin-top:auto;background:#2a2150;border-radius:14px;padding:10px;font-size:12px}
+.main{padding:14px;overflow:auto}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800}
+.ok{background:#e8fff4;color:var(--green)}.pur{background:var(--violet);color:#fff;border:0}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:12px}
+.controls,.cast,.shots{display:grid;gap:8px}.controls{grid-template-columns:repeat(4,1fr) auto}.cast{grid-template-columns:repeat(5,1fr)}.shots{grid-template-columns:repeat(6,1fr)}
+label{display:block;font-size:11px;font-weight:800;color:var(--mute);margin-bottom:4px}
+select,input,textarea{width:100%;border:1.5px solid #e4dcf6;border-radius:12px;padding:8px;font:inherit}
+textarea{min-height:54px}button{font:inherit;font-weight:800;border:0;cursor:pointer;border-radius:12px}
+.btn{padding:9px 12px}.v{background:var(--violet);color:#fff}.g{background:var(--green);color:#fff}.w{background:#fff;border:1.5px solid var(--line)}.p{background:#3d2e8a;color:#fff}
+.card,.shot{border:1.5px solid var(--line);border-radius:14px;overflow:hidden;position:relative}
+.shot{cursor:pointer}.shot.on{outline:3px solid #c9b6ff}
+.thumb{height:70px;display:grid;place-items:center;color:#fff;font-weight:800;background:linear-gradient(160deg,#7b5cff,#89d4ff)}
+.stagebox{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+canvas{width:100%;height:auto;display:block;border-radius:14px}
+.hint{color:var(--mute);font-size:12px}.warn{background:#fff8e6;border-radius:12px;padding:8px;font-weight:700;margin:8px 0}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.page{display:none}.page.on{display:block}
+@media(max-width:1000px){body{grid-template-columns:1fr}.side{display:none}.controls,.cast,.shots,.stagebox{grid-template-columns:1fr 1fr}}
+</style></head>
 <body>
 <aside class="side">
-  <div class="brand" style="display:flex;gap:10px;align-items:center;padding:6px 8px 16px"><div class="logo">🧒</div><div><b>Wasiq Universe</b><br><small>Studio v1</small></div></div>
-  <button class="navbtn on" data-page="director">Episode Director</button>
-  <button class="navbtn" data-page="characters">Characters</button>
-  <button class="navbtn" data-page="library">Asset Library</button>
-  <button class="navbtn" data-page="render">Render Studio</button>
-  <div class="privacy"><b>Privacy First</b><br>Drafts stay in this browser. Nothing is uploaded.</div>
+<div class="brand"><b>Wasiq Universe</b><div class="hint" style="color:#b7aad8">Studio PWA v1</div></div>
+<button class="navbtn on" data-page="director">Episode Director</button>
+<button class="navbtn" data-page="bible">Locked Bible</button>
+<button class="navbtn" id="installBtn" hidden>Install app</button>
+<div class="privacy"><b>Privacy First</b><br>Offline shell. WebM stays on this device.</div>
 </aside>
 <main class="main">
-  <div class="top"><div><h1>Episode Director</h1><div class="hint">60-second locked-cast learning cartoon.</div></div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip">বাংলা + English</span><span class="chip">60s · 6×10s</span><span class="chip ok" id="saveState">Saved locally</span><span class="chip purple">Parent review</span></div></div>
-  <section class="page on" id="page-director">
-    <div class="panel"><div class="controls">
-      <div><label>Topic</label><select id="topic"></select></div>
-      <div><label>Language</label><select id="lang"><option value="bn-en">বাংলা + English</option><option value="bn">বাংলা</option><option value="en">English</option></select></div>
-      <div><label>Duration</label><select id="dur"><option>60 sec (6×10s)</option></select></div>
-      <div><label>Cast</label><select id="castMode"><option value="core5">Core 5</option><option value="all6">All 6 friends</option></select></div>
-      <button class="btn btn-v" id="build">Build Storyboard</button>
-    </div></div>
-    <div class="panel"><h2>Locked Cast</h2><div class="cast" id="cast"></div></div>
-    <div class="panel"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Storyboard (6 shots)</h2><label class="hint"><input type="checkbox" id="parentNeed" checked /> Parent review required</label></div><div class="shots" id="shots"></div></div>
-    <div class="stagebox">
-      <div class="panel"><h2>Shot preview</h2><canvas id="stage" width="720" height="405"></canvas>
-        <div class="actions" style="margin-top:10px"><button class="btn btn-w" id="prev">Prev</button><button class="btn btn-v" id="play">Play 60s</button><button class="btn btn-w" id="next">Next</button></div></div>
-      <div class="panel">
-        <h2>Edit selected shot</h2>
-        <label>Title</label><input id="editTitle" />
-        <label>Action</label><textarea id="editBody"></textarea>
-        <label>Line (EN)</label><input id="editEn" />
-        <label>লাইন (বাংলা)</label><input id="editBn" />
-        <div class="warn">No video leaves this desk until a parent approves.</div>
-        <div class="actions"><button class="btn btn-w" id="saveDraft">Save Draft</button><button class="btn btn-p" id="markReview">Request Parent Review</button><button class="btn btn-g" id="approve">Approve & Record</button></div>
-        <p class="hint" id="gateNote"></p>
-        <div class="actions"><button class="btn btn-v" id="rec" disabled>Record WebM</button><button class="btn btn-w" id="stopRec" hidden>Stop & download</button></div>
-      </div>
-    </div>
-  </section>
-  <section class="page" id="page-characters"><div class="panel"><h2>Locked bible</h2><p>Wasiq 10 months. Pixie white Spitz red bandana. Tutun tabby. Puipui purple bird. Puchu panda. Kathbirali squirrel. Do not age or recast.</p></div></section>
-  <section class="page" id="page-library"><div class="panel"><h2>Asset folders</h2><pre>/Wasiq /Pixie /Tutun /Puipui /Puchu /Kathbirali /Props /Backgrounds</pre></div></section>
-  <section class="page" id="page-render"><div class="panel"><h2>Render</h2><p>v1 canvas WebM playblast.</p></div></section>
+<div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+<div><h1 style="margin:0">Episode Director</h1><div class="hint">Playroom Colors · locked overalls cast · 60s</div></div>
+<div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip">বাংলা + English</span><span class="chip">BG/MG/FG</span><span class="chip ok" id="saveState">Local</span><span class="chip pur">Parent review</span></div>
+</div>
+<section class="page on" id="page-director">
+<div class="panel"><div class="controls">
+<div><label>Topic</label><select id="topic"><option>Colors</option></select></div>
+<div><label>Language</label><select id="lang"><option value="bn-en">বাংলা + English</option><option value="bn">বাংলা</option><option value="en">English</option></select></div>
+<div><label>World</label><select disabled><option>01 Playroom</option></select></div>
+<div><label>Wipe</label><select id="wipe"><option value="star">Star wipe</option><option value="paint">Paint wipe</option></select></div>
+<button class="btn v" id="build">Rebuild</button>
+</div></div>
+<div class="panel"><h2>Locked Cast</h2><div class="cast" id="cast"></div></div>
+<div class="panel"><div style="display:flex;justify-content:space-between"><h2>Storyboard</h2><label class="hint"><input type="checkbox" id="parentNeed" checked> Parent review</label></div><div class="shots" id="shots"></div></div>
+<div class="stagebox">
+<div class="panel"><h2>Playroom stage</h2><canvas id="stage" width="960" height="540"></canvas>
+<div class="actions" style="margin-top:8px"><button class="btn w" id="prev">Prev</button><button class="btn v" id="play">Play 60s</button><button class="btn w" id="next">Next</button></div></div>
+<div class="panel">
+<h2>Edit shot</h2>
+<label>Title</label><input id="editTitle">
+<label>Action</label><textarea id="editBody"></textarea>
+<label>EN</label><input id="editEn">
+<label>বাংলা</label><input id="editBn">
+<div class="warn">Playroom only. Same five friends. Approve before record.</div>
+<div class="actions"><button class="btn w" id="saveDraft">Save</button><button class="btn p" id="markReview">Request review</button><button class="btn g" id="approve">Approve</button></div>
+<p class="hint" id="gateNote"></p>
+<div class="actions"><button class="btn v" id="rec" disabled>Record WebM</button><button class="btn w" id="stopRec" hidden>Stop & download</button></div>
+</div></div>
+</section>
+<section class="page" id="page-bible"><div class="panel"><h2>Locked bible</h2><p>Wasiq toddler yellow + teal overalls. Cream Pixie. Tabby Tutun. Blue Puipui. Standing Puchu. No Kathbirali.</p></div></section>
 </main>
 <script>
-const CAST=[{id:"wasiq",name:"Wasiq",role:"10 months",emoji:"🧒",color:"#7db7ff",on:true,core:true},{id:"pixie",name:"Pixie",role:"Indian Spitz",emoji:"🐶",color:"#ffd4e4",on:true,core:true},{id:"tutun",name:"Tutun",role:"Tabby",emoji:"🐱",color:"#ffd7a8",on:true,core:true},{id:"puipui",name:"Puipui",role:"Bird",emoji:"🐦",color:"#e0d4ff",on:true,core:true},{id:"puchu",name:"Puchu",role:"Panda",emoji:"🐼",color:"#d9ffe8",on:true,core:true},{id:"kath",name:"Kathbirali",role:"Squirrel",emoji:"🐿️",color:"#f3e0cc",on:false,core:false}];
-const TOPICS={colors:{label:"Colors",shots:[{k:"HOOK",title:"SHOT 01 · HOOK",en:"Wasiq finds a glowing color chest.",bn:"ওয়াসিক একটি রঙিন বাক্স খু顱জে পায়।",body:"Color mystery."},{k:"DISCOVER",title:"SHOT 02 · DISCOVER",en:"Friends run into the playroom.",bn:"বন্ধুরা খেলার ঘরে ছুটে আসে।",body:"Cast enters."},{k:"CHALLENGE",title:"SHOT 03 · CHALLENGE",en:"Which ball is red?",bn:"কোনটা লাল?",body:"Pause for an answer."},{k:"REVEAL",title:"SHOT 04 · REVEAL",en:"Red! লাল!",bn:"লাল! Red!",body:"Celebrate."},{k:"REPEAT",title:"SHOT 05 · REPEAT",en:"Now find blue.",bn:"এবার নীল খো頜ো।",body:"Second challenge."},{k:"FINALE",title:"SHOT 06 · FINALE",en:"Red লাল · Blue নীল · Green সবুজ",bn:"লাল Red · নীল Blue · সবুজ Green",body:"Repeat words."}]},numbers:{label:"Numbers 1-3",shots:[{k:"HOOK",title:"SHOT 01 · HOOK",en:"One little drum.",bn:"একটি ছোট ঢোল।",body:"Start at one."},{k:"DISCOVER",title:"SHOT 02 · DISCOVER",en:"Friends bring more drums.",bn:"বন্ধুরা আরও ঢোল আনে।",body:"More drums."},{k:"CHALLENGE",title:"SHOT 03 · CHALLENGE",en:"How many now?",bn:"এখন কয়টা?",body:"Pause."},{k:"REVEAL",title:"SHOT 04 · REVEAL",en:"Three! তিন!",bn:"তিন! Three!",body:"Three."},{k:"REPEAT",title:"SHOT 05 · REPEAT",en:"Count with us.",bn:"আমাদের সাথে গোনো।",body:"1-2-3."},{k:"FINALE",title:"SHOT 06 · FINALE",en:"We counted to three.",bn:"আমরা তিন পর্যন্ত গুনলাম।",body:"Close."}]},kindness:{label:"Kindness",shots:[{k:"HOOK",title:"SHOT 01 · HOOK",en:"Pixie dropped a toy.",bn:"পিক্সির খেলনা পড়ে গেল।",body:"Mishap."},{k:"DISCOVER",title:"SHOT 02 · DISCOVER",en:"Wasiq sees a friend who needs help.",bn:"ওয়াসিক দেখে বন্ধুর সাহায্য দরকার।",body:"Notice."},{k:"CHALLENGE",title:"SHOT 03 · CHALLENGE",en:"What can we do?",bn:"আমরা কী করতে পারি?",body:"Pause."},{k:"REVEAL",title:"SHOT 04 · REVEAL",en:"We help.",bn:"আমরা সাহায্য করি।",body:"Help."},{k:"REPEAT",title:"SHOT 05 · REPEAT",en:"Helping feels warm.",bn:"সাহায্য করলে মন ভরে।",body:"Warm."},{k:"FINALE",title:"SHOT 06 · FINALE",en:"Friends take care of friends.",bn:"বন্ধুরা বন্ধুদের দেখাশোনা করে।",body:"Close."}]}};
-const state={topic:"colors",lang:"bn-en",shots:JSON.parse(JSON.stringify(TOPICS.colors.shots)),sel:0,playing:false,approved:false,reviewed:false,rec:null,chunks:[]};
+const CAST=[{id:"wasiq",name:"Wasiq",role:"Overalls"},{id:"pixie",name:"Pixie",role:"Cream Spitz"},{id:"tutun",name:"Tutun",role:"Tabby"},{id:"puipui",name:"Puipui",role:"Blue bird"},{id:"puchu",name:"Puchu",role:"Panda"}];
+const SHOTS0=[{k:"HOOK",title:"SHOT 01 · HOOK",en:"Wasiq finds a color chest.",bn:"ওয়াসিক একটি রঙিন বাক্স খুঁজে পায়।",body:"Chest on the rug. Push-in.",cam:{x:40,z:1.12}},{k:"DISCOVER",title:"SHOT 02 · DISCOVER",en:"Friends run into the playroom.",bn:"বন্ধুরা খেলার ঘরে ছুটে আসে।",body:"Full room.",cam:{x:0,z:1}},{k:"CHALLENGE",title:"SHOT 03 · CHALLENGE",en:"Which ball is red?",bn:"কোনটা লাল?",body:"Three balls. Pause.",cam:{x:-20,z:1.18}},{k:"REVEAL",title:"SHOT 04 · REVEAL",en:"Red! লাল!",bn:"লাল! Red!",body:"Point and celebrate.",cam:{x:10,z:1.08}},{k:"REPEAT",title:"SHOT 05 · REPEAT",en:"Now find blue.",bn:"এবার নীল খোঁজো।",body:"Second pause.",cam:{x:30,z:1.16}},{k:"FINALE",title:"SHOT 06 · FINALE",en:"Red লাল · Blue নীল · Green সবুজ",bn:"লাল Red · নীল Blue · সবুজ Green",body:"Wide group sparkles.",cam:{x:0,z:0.96}}];
+const state={lang:"bn-en",shots:JSON.parse(JSON.stringify(SHOTS0)),sel:0,playing:false,approved:false,reviewed:false,wipe:"star",rec:null,chunks:[],wipeT:-1};
 const $=id=>document.getElementById(id);const canvas=$("stage"),ctx=canvas.getContext("2d");
-function applyCastMode(){const all=$("castMode").value==="all6";CAST.forEach(c=>c.on=all?true:c.core)}
-function renderCast(){$("cast").innerHTML=CAST.map(c=>`<div class="card ${c.on?"":"off"}" style="padding:8px">${c.on?'<span class="tag">LOCKED</span>':""}<div class="avatar" style="background:${c.color}">${c.emoji}</div><b>${c.name}</b><div class="hint">${c.role}</div></div>`).join("")}
-function renderShots(){$("shots").innerHTML=state.shots.map((s,i)=>`<article class="shot ${i===state.sel?"on":""}" data-i="${i}"><div class="thumb"><span class="num">${i+1}</span>${s.k}</div><div style="padding:8px"><b>${s.title}</b><p class="hint">${s.body}</p></div></article>`).join("")}
-function fillEditor(){const s=state.shots[state.sel];$("editTitle").value=s.title;$("editBody").value=s.body;$("editEn").value=s.en;$("editBn").value=s.bn}
-function readEditor(){const s=state.shots[state.sel];s.title=$("editTitle").value;s.body=$("editBody").value;s.en=$("editEn").value;s.bn=$("editBn").value}
-function saveLocal(){localStorage.setItem("wus-ep-v1",JSON.stringify({topic:state.topic,lang:state.lang,shots:state.shots,approved:state.approved,reviewed:state.reviewed}));$("saveState").textContent="Saved locally"}
-function loadLocal(){try{const d=JSON.parse(localStorage.getItem("wus-ep-v1")||"null");if(d)Object.assign(state,d)}catch(e){}}
-function lineFor(s){return state.lang==="bn"?s.bn:state.lang==="en"?s.en:s.en+" · "+s.bn}
-function round(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
-function drawFriend(c,x,y){ctx.save();ctx.translate(x,y);ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(0,0,22,0,Math.PI*2);ctx.fill();ctx.font="28px serif";ctx.textAlign="center";ctx.fillText(c.emoji,0,10);ctx.restore()}
-function drawShot(idx,t){const s=state.shots[idx];const g=ctx.createLinearGradient(0,0,0,405);g.addColorStop(0,"#bfe7ff");g.addColorStop(1,"#ffe9c7");ctx.fillStyle=g;ctx.fillRect(0,0,720,405);ctx.fillStyle="#8ad38a";ctx.fillRect(0,300,720,105);if(state.topic==="colors"){["#ff5d73","#4ea8ff","#3cce7a"].forEach((col,i)=>{ctx.fillStyle=col;ctx.beginPath();ctx.arc(280+i*90,250+Math.sin(t*2+i)*8,28,0,Math.PI*2);ctx.fill()})}CAST.filter(c=>c.on).forEach((c,i)=>drawFriend(c,90+i*(540/Math.max(CAST.filter(z=>z.on).length-1,1)),318+Math.sin(t*3+i)*6));ctx.fillStyle="rgba(28,22,56,.72)";round(40,330,640,58,14);ctx.fill();ctx.fillStyle="#fff";ctx.font="700 16px Nunito,sans-serif";ctx.textAlign="center";ctx.fillText(lineFor(s),360,366);ctx.fillStyle="#5b3ce8";ctx.textAlign="left";ctx.fillText((idx+1)+"/6 "+s.k,24,28)}
+function save(){localStorage.setItem("wus-pwa-v1",JSON.stringify({lang:state.lang,shots:state.shots,approved:state.approved,reviewed:state.reviewed,wipe:state.wipe}));$("saveState").textContent="Saved"}
+function load(){try{const d=JSON.parse(localStorage.getItem("wus-pwa-v1")||"null");if(d)Object.assign(state,d)}catch(e){}}
+function line(s){return state.lang==="bn"?s.bn:state.lang==="en"?s.en:s.en+" · "+s.bn}
+function renderCast(){$("cast").innerHTML=CAST.map(c=>`<div class="card" style="padding:8px;text-align:center"><b>${c.name}</b><div class="hint">${c.role}</div></div>`).join("")}
+function renderShots(){$("shots").innerHTML=state.shots.map((s,i)=>`<article class="shot ${i===state.sel?"on":""}" data-i="${i}"><div class="thumb">${i+1} ${s.k}</div><p class="hint" style="padding:8px">${s.body}</p></article>`).join("")}
+function fill(){const s=state.shots[state.sel];$("editTitle").value=s.title;$("editBody").value=s.body;$("editEn").value=s.en;$("editBn").value=s.bn}
+function read(){const s=state.shots[state.sel];s.title=$("editTitle").value;s.body=$("editBody").value;s.en=$("editEn").value;s.bn=$("editBn").value}
+function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function drawPlayroom(cam,t){ctx.save();ctx.translate(480,270);ctx.scale(cam.z,cam.z);ctx.translate(-480-cam.x*0.2,-270);const sky=ctx.createLinearGradient(0,0,0,540);sky.addColorStop(0,"#b7e4ff");sky.addColorStop(1,"#fff3d6");ctx.fillStyle=sky;ctx.fillRect(-80,0,1120,540);ctx.fillStyle="#f7d7b0";ctx.fillRect(-80,70,1120,360);ctx.fillStyle="#8ec8ff";rr(80,70,260,170,8);ctx.fill();ctx.fillStyle="#fff";ctx.fillRect(95,85,230,140);ctx.fillStyle="#7ec8f5";ctx.fillRect(-80,430,1120,140);ctx.restore();ctx.save();ctx.translate(480,270);ctx.scale(cam.z,cam.z);ctx.translate(-480-cam.x*0.55,-270);ctx.fillStyle="#c9844a";ctx.fillRect(620,90,280,250);ctx.fillStyle="#2f6b4a";ctx.fillRect(430,110,160,120);ctx.restore();ctx.save();ctx.translate(480,270);ctx.scale(cam.z,cam.z);ctx.translate(-480-cam.x,-270);ctx.fillStyle="#ff6b8a";ctx.beginPath();ctx.ellipse(480,500,260,48,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#e8b86d";rr(360,390,240,70,10);ctx.fill();["#ff5d73","#4ea8ff","#3cce7a"].forEach((c,i)=>{ctx.fillStyle=c;ctx.beginPath();ctx.arc(400+i*70,378+Math.sin(t*2+i)*6,18,0,Math.PI*2);ctx.fill()});if(state.sel===0){ctx.fillStyle="#7b5cff";rr(200,400,70,50,8);ctx.fill()}ctx.restore()}
+function friend(id,x,y,s,t){ctx.save();ctx.translate(x,y+Math.sin(t*3+x)*4);ctx.scale(s,s);ctx.fillStyle="rgba(0,0,0,.12)";ctx.beginPath();ctx.ellipse(0,52,26,8,0,0,Math.PI*2);ctx.fill();
+if(id==="wasiq"){ctx.fillStyle="#f3c7a3";ctx.beginPath();ctx.arc(0,-8,20,0,Math.PI*2);ctx.fill();ctx.fillStyle="#f4c24b";rr(-18,12,36,16,6);ctx.fill();ctx.fillStyle="#2f7ec8";rr(-16,24,32,28,8);ctx.fill()}
+else if(id==="pixie"){ctx.fillStyle="#f4ead6";ctx.beginPath();ctx.ellipse(0,10,28,22,0,0,Math.PI*2);ctx.fill()}
+else if(id==="tutun"){ctx.fillStyle="#b56a36";ctx.beginPath();ctx.ellipse(0,16,24,20,0,0,Math.PI*2);ctx.fill()}
+else if(id==="puipui"){ctx.fillStyle="#3c9be8";ctx.beginPath();ctx.ellipse(0,8,20,16,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#ffb703";ctx.beginPath();ctx.moveTo(8,-8);ctx.lineTo(22,-4);ctx.lineTo(8,0);ctx.fill()}
+else{ctx.fillStyle="#f7f7f7";ctx.beginPath();ctx.arc(0,6,22,0,Math.PI*2);ctx.fill();ctx.fillStyle="#222";ctx.beginPath();ctx.arc(-16,-8,9,0,Math.PI*2);ctx.arc(16,-8,9,0,Math.PI*2);ctx.fill()}
+ctx.restore()}
+function drawWipe(p){if(p<=0||p>=1)return;ctx.fillStyle="#6d4aff";if(state.wipe==="paint")ctx.fillRect(0,0,960*p*1.2,540);else{ctx.beginPath();ctx.arc(480,270,Math.hypot(960,540)*p,0,Math.PI*2);ctx.rect(960,0,-960,540);ctx.fill("evenodd")}}
+function draw(t){const s=state.shots[state.sel];ctx.clearRect(0,0,960,540);drawPlayroom(s.cam,t);const places=[["wasiq",220,430,1.15],["pixie",370,445,.95],["tutun",500,448,.9],["puipui",630,400,.85],["puchu",760,430,1.05]];if(state.sel===0)places.splice(1);places.forEach(([id,x,y,sc])=>friend(id,x-s.cam.x,y,sc,t));ctx.fillStyle="rgba(23,18,47,.72)";rr(40,455,880,68,16);ctx.fill();ctx.fillStyle="#fff";ctx.font="700 18px Nunito,sans-serif";ctx.textAlign="center";ctx.fillText(line(s),480,498);if(state.wipeT>=0)drawWipe(state.wipeT)}
 let last=performance.now(),clock=0;
-function loop(now){const dt=(now-last)/1000;last=now;if(state.playing){clock+=dt;const shot=Math.min(5,Math.floor(clock/10));if(shot!==state.sel){state.sel=shot;renderShots();fillEditor()}if(clock>=60)state.playing=false}drawShot(state.sel,now/1000);requestAnimationFrame(loop)}
-function buildBoard(){state.topic=$("topic").value;state.lang=$("lang").value;state.shots=JSON.parse(JSON.stringify(TOPICS[state.topic].shots));state.sel=0;state.approved=false;state.reviewed=false;applyCastMode();renderCast();renderShots();fillEditor();saveLocal();$("rec").disabled=true;$("gateNote").textContent="New board. Parent review still required."}
-Object.entries(TOPICS).forEach(([id,t])=>{const o=document.createElement("option");o.value=id;o.textContent=t.label;$("topic").appendChild(o)});
-document.querySelectorAll(".navbtn").forEach(btn=>{btn.onclick=()=>{document.querySelectorAll(".navbtn").forEach(b=>b.classList.remove("on"));btn.classList.add("on");document.querySelectorAll(".page").forEach(p=>p.classList.remove("on"));$("page-"+btn.dataset.page).classList.add("on")}});
-$("shots").addEventListener("click",e=>{const art=e.target.closest("[data-i]");if(!art)return;readEditor();state.sel=+art.dataset.i;renderShots();fillEditor()});
-["editTitle","editBody","editEn","editBn"].forEach(id=>$(id).addEventListener("input",()=>{readEditor();renderShots();saveLocal()}));
-$("build").onclick=buildBoard;$("castMode").onchange=()=>{applyCastMode();renderCast()};$("lang").onchange=()=>{state.lang=$("lang").value;saveLocal()};
-$("saveDraft").onclick=()=>{readEditor();saveLocal()};
-$("markReview").onclick=()=>{state.reviewed=true;$("gateNote").textContent="Review requested. Read every shot, then approve.";saveLocal()};
-$("approve").onclick=()=>{if($("parentNeed").checked&&!state.reviewed){$("gateNote").textContent="Request parent review first.";return}state.approved=true;$("rec").disabled=false;$("gateNote").textContent="Approved. Local record unlocked.";saveLocal()};
+function loop(now){const dt=(now-last)/1000;last=now;if(state.playing){clock+=dt;const shot=Math.min(5,Math.floor(clock/10));const into=clock%10;state.wipeT=into<.45?1-into/.45:(into>9.55?(into-9.55)/.45:-1);if(shot!==state.sel){state.sel=shot;renderShots();fill()}if(clock>=60){state.playing=false;state.wipeT=-1}}else state.wipeT=-1;draw(now/1000);requestAnimationFrame(loop)}
+renderCast();
+$("shots").onclick=e=>{const a=e.target.closest("[data-i]");if(!a)return;read();state.sel=+a.dataset.i;renderShots();fill()};
+["editTitle","editBody","editEn","editBn"].forEach(id=>$(id).oninput=()=>{read();renderShots();save()});
+$("lang").onchange=()=>{state.lang=$("lang").value;save()};$("wipe").onchange=()=>{state.wipe=$("wipe").value;save()};
+$("build").onclick=()=>{state.shots=JSON.parse(JSON.stringify(SHOTS0));state.sel=0;state.approved=false;state.reviewed=false;$("rec").disabled=true;renderShots();fill();save()};
+$("saveDraft").onclick=()=>{read();save()};
+$("markReview").onclick=()=>{state.reviewed=true;save();$("gateNote").textContent="Review requested."};
+$("approve").onclick=()=>{if($("parentNeed").checked&&!state.reviewed){$("gateNote").textContent="Request review first.";return}state.approved=true;$("rec").disabled=false;save();$("gateNote").textContent="Approved."};
 $("play").onclick=()=>{state.playing=true;clock=state.sel*10};
-$("prev").onclick=()=>{state.sel=(state.sel+5)%6;renderShots();fillEditor()};
-$("next").onclick=()=>{state.sel=(state.sel+1)%6;renderShots();fillEditor()};
-$("rec").onclick=()=>{if(!state.approved)return;const rec=new MediaRecorder(canvas.captureStream(30),{mimeType:MediaRecorder.isTypeSupported("video/webm;codecs=vp9")?"video/webm;codecs=vp9":"video/webm"});state.chunks=[];rec.ondataavailable=e=>{if(e.data.size)state.chunks.push(e.data)};rec.onstop=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(state.chunks,{type:"video/webm"}));a.download="wasiq-episode-v1.webm";a.click()};rec.start();state.rec=rec;state.playing=true;clock=0;$("rec").hidden=true;$("stopRec").hidden=false};
+$("prev").onclick=()=>{state.sel=(state.sel+5)%6;renderShots();fill()};
+$("next").onclick=()=>{state.sel=(state.sel+1)%6;renderShots();fill()};
+$("rec").onclick=()=>{if(!state.approved)return;const rec=new MediaRecorder(canvas.captureStream(30),{mimeType:MediaRecorder.isTypeSupported("video/webm;codecs=vp9")?"video/webm;codecs=vp9":"video/webm"});state.chunks=[];rec.ondataavailable=e=>{if(e.data.size)state.chunks.push(e.data)};rec.onstop=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(state.chunks,{type:"video/webm"}));a.download="wasiq-colors-playroom.webm";a.click()};rec.start();state.rec=rec;state.playing=true;clock=0;$("rec").hidden=true;$("stopRec").hidden=false};
 $("stopRec").onclick=()=>{if(state.rec&&state.rec.state!=="inactive")state.rec.stop();$("rec").hidden=false;$("stopRec").hidden=true};
-applyCastMode();loadLocal();$("topic").value=state.topic;$("lang").value=state.lang||"bn-en";renderCast();renderShots();fillEditor();requestAnimationFrame(loop);
-</script>
-</body>
-</html>
+document.querySelectorAll(".navbtn[data-page]").forEach(btn=>{btn.onclick=()=>{document.querySelectorAll(".navbtn").forEach(b=>b.classList.remove("on"));btn.classList.add("on");document.querySelectorAll(".page").forEach(p=>p.classList.remove("on"));$("page-"+btn.dataset.page).classList.add("on")}});
+let deferred;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;$("installBtn").hidden=false});
+$("installBtn").onclick=async()=>{if(!deferred)return;deferred.prompt();deferred=null;$("installBtn").hidden=true};
+if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js");
+load();$("lang").value=state.lang||"bn-en";$("wipe").value=state.wipe||"star";if(!state.shots||state.shots.length!==6)state.shots=JSON.parse(JSON.stringify(SHOTS0));renderCast();renderShots();fill();requestAnimationFrame(loop);
+</script></body></html>
